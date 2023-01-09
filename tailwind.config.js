@@ -4,7 +4,15 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary': '#161616',
+        'secondary': '#787cfe'
+      },
+      fontFamily: {
+        'chakra': ['Chakra Petch', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }
