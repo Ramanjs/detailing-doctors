@@ -7,7 +7,9 @@ module.exports = {
     extend: {
       colors: {
         'primary': '#161616',
-        'secondary': '#787cfe'
+        'secondary': '#787cfe',
+        'offwhite': '#c2c2c2',
+        'grey': '#343434'
       },
       fontFamily: {
         'chakra': ['Chakra Petch', 'sans-serif']
