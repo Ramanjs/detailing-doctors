@@ -19,21 +19,21 @@ const Home = ({ vref }) => {
       {/* About Us */}
       <div className="w-full min-h-screen flex flex-col justify-center text-lg relative">
         {/* Background */}
-        <div className="absolute top-0 w-full h-full -z-10 flex">
-          <div className="w-1/3">
-            <img className="h-full -z-10 object-cover" src={car1} alt="bg"/>
+        <div className="absolute top-0 w-full h-full -z-10 flex flex-col lg:flex-row">
+          <div className="h-1/3 lg:w-1/3 lg:h-full">
+            <img className="w-full h-full -z-10 object-cover" src={car1} alt="bg"/>
           </div>
-          <div className="w-1/3">
-            <img className="h-full -z-10 object-cover" src={car2} alt="bg"/>
+          <div className="h-1/3 lg:w-1/3 lg:h-full">
+            <img className="w-full h-full -z-10 object-cover" src={car2} alt="bg"/>
           </div>
-          <div className="w-1/3">
-            <img className="h-full -z-10 object-cover" src={car3} alt="bg"/>
+          <div className="h-1/3 lg:w-1/3 lg:h-full">
+            <img className="w-full h-full -z-10 object-cover" src={car3} alt="bg"/>
           </div>
 
           {/* Background filter */}
           <div className="absolute top-0 w-full h-full bg-black/70 z-0"></div>
         </div>
-        <div className="px-36">
+        <div className="px-8 lg:px-36">
           <h2 className="text-4xl font-semibold uppercase font-chakra my-4">Transform Your Car With A Tempered-Glass</h2>
           <div className="w-16 border-2 border-secondary mb-4"></div>
           <p className="my-4">Welcome to Detailing Doctors, the premier car detailing studio in town. We are dedicated to bringing your vehicle to its full potential, both inside and out. Our team of experienced professionals use only the best products and techniques to ensure your car looks its best.</p>
