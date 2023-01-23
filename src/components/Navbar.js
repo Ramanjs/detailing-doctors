@@ -10,7 +10,7 @@ const Navbar = ({ inView }) => {
       )}
       <div className="flex gap-4">
         <a className="p-2"><NavLink to="/" className={({ isActive }) => isActive ? "underline decoration-secondary decoration-2 underline-offset-4" : ""}>Home</NavLink></a>
-        <a className="p-2"><NavLink to="/products" className={({ isActive }) => isActive ? "underline decoration-secondary decoration-2 underline-offset-4" : ""}>Products and Services</NavLink></a>
+        <a className="p-2"><NavLink to="/products" className={({ isActive }) => isActive ? "underline decoration-secondary decoration-2 underline-offset-4" : ""}>Products</NavLink></a>
         <a className="p-2"><NavLink to="/studios" className={({ isActive }) => isActive ? "underline decoration-secondary decoration-2 underline-offset-4" : ""}>Studios</NavLink></a>
         <a className="p-2"><NavLink to="/franchise" className={({ isActive }) => isActive ? "underline decoration-secondary decoration-2 underline-offset-4" : ""}>Franchise</NavLink></a>
         <a className="p-2"><NavLink to="/contact" className={({ isActive }) => isActive ? "underline decoration-secondary decoration-2 underline-offset-4" : ""}>Contact Us</NavLink></a>
