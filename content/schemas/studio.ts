@@ -1,5 +1,6 @@
 export const studio = {
   name: 'studio',
+  title: 'Studio',
   type: 'document',
   fields: [
     {

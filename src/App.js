@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Products from './pages/Products'
 import Studios from './pages/Studios'
+import BookSlot from './pages/BookSlot'
 import Contact from './pages/Contact'
 import {HashRouter, Routes, Route} from 'react-router-dom'
 import {useInView} from 'react-intersection-observer'
@@ -20,6 +21,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/studios" element={<Studios />} />
+        <Route path="/bookslot" element={<BookSlot />} />
       </Routes>
     </HashRouter>
   );
