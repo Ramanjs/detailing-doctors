@@ -9,6 +9,11 @@ export const studio = {
       type: 'string'
     },
     {
+      name: 'description',
+      title: 'Description',
+      type: 'string'
+    },
+    {
       name: 'calendar',
       title: 'Calendar',
       type: 'array',
