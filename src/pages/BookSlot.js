@@ -1,16 +1,22 @@
 import {useEffect, useState} from "react"
-import {useLocation} from "react-router-dom"
+import {useNavigate, useLocation} from "react-router-dom"
 import sanityClient from "../sanity-client"
+import emailjs from "@emailjs/browser"
 
 const BookSlot = () => {
 
   const { state } = useLocation()
   const [data, setData] = useState(null)
-  const [date, setDate] = useState('')
   const [selectedSlot, setSelectedSlot] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+
+  const navigate = useNavigate()
+
+  if (!state) {
+    navigate("/studios")
+  }
 
   useEffect(() => {
     sanityClient.fetch(`*[_type == "studio" && name == "${state.studio}"] {
@@ -27,6 +33,43 @@ const BookSlot = () => {
     if (slot.available) {
       setSelectedSlot(slot._key)
     }
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    let slot_date, slot_time;
+
+    for (let planner of data.calendar) {
+      for (let slot of planner.slots) {
+        if (slot._key == selectedSlot) {
+          slot_time = slot.slot_time;
+          slot_date = planner.day;
+          break;
+        }
+      }
+    }
+
+    const templateParams = {
+      name,
+      to_email: email,
+      studio: state.studio,
+      slot_time,
+      slot_date,
+      message,
+    }
+
+    emailjs.send(
+      "service_bsjvemm",
+      "template_aglawk9",
+      templateParams,
+      "MdQQ8r7SRIsYuy7Vr"
+    )
+      .then(() => {
+        console.log("success")
+      })
+      .catch(err => {
+        console.log("error")
+      })
   }
 
   return (
@@ -55,7 +98,7 @@ const BookSlot = () => {
           ))
         }
 
-        <form className="flex flex-col">
+        <form className="flex flex-col" onSubmit={handleSubmit}>
           <div className="flex flex-col my-4">
             <label className="font-chakra font-semibold uppercase" htmlFor="name">Your name</label>
             <input className="w-1/2 py-2 border-b-2 border-grey bg-primary text-offwhite placeholder:text-offwhite focus:outline-none focus:border-secondary" id="name" type="text" value={name} placeholder="Enter Your Name" onChange={(e) => setName(e.target.value)}></input>
