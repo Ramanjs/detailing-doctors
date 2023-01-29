@@ -41,7 +41,7 @@ const BookSlot = () => {
 
     for (let planner of data.calendar) {
       for (let slot of planner.slots) {
-        if (slot._key == selectedSlot) {
+        if (slot._key === selectedSlot) {
           slot_time = slot.slot_time;
           slot_date = planner.day;
           break;
