@@ -22,10 +22,11 @@ const BookSlot = () => {
   useEffect(() => {
     sanityClient.fetch(`*[_type == "studio" && name == "${state.studio}"] {
         name,
+        description,
         calendar
       }`)
       .then(data => {
-        console.log(data[0])
+        data[0].calendar = data[0].calendar.filter(planner => new Date(planner.day) >= today)
         setData(data[0])
       })
   }, [])
@@ -80,7 +81,6 @@ const BookSlot = () => {
         <h2 className="mb-4 font-chakra text-2xl uppercase text-secondary text-center">{state.studio} Studio</h2>
         <p className="text-white text-xl mt-2">Pick a Slot</p>
         {data && data.calendar.map(planner => (
-            planner.day >= today ? (
               <div key={planner._key} className="my-8">
                 <h3 className="text-lg">{planner.day}</h3>
                 <div className="my-2 border-l-2 border-secondary">
@@ -97,7 +97,6 @@ const BookSlot = () => {
                   ))}
                 </div>
               </div>
-            ): null
           ))
         }
 
