@@ -11,6 +11,7 @@ const BookSlot = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const today = new Date()
 
   const navigate = useNavigate()
 
@@ -79,33 +80,35 @@ const BookSlot = () => {
         <h2 className="mb-4 font-chakra text-2xl uppercase text-secondary text-center">{state.studio} Studio</h2>
         <p className="text-white text-xl mt-2">Pick a Slot</p>
         {data && data.calendar.map(planner => (
-            <div key={planner._key} className="my-8">
-              <h3 className="text-lg">{planner.day}</h3>
-              <div className="my-2 border-l-2 border-secondary">
-                {planner.slots.map(slot => (
-                  <button
-                    className={"border-2 px-4 py-2 m-2 hover:bg-secondary hover:border-secondary" +
-                    (!slot.available ? " text-gray-400 border-gray-400 hover:bg-transparent hover:border-gray-400 cursor-default" : "") +
-                        (selectedSlot === slot._key ? " bg-secondary border-white hover:border-white" : "")}
-                    key={slot._key}
-                    onClick={() => handleClick(slot)}
-                  >
-                      {slot.slot_time}
-                  </button>
-                ))}
+            planner.day >= today ? (
+              <div key={planner._key} className="my-8">
+                <h3 className="text-lg">{planner.day}</h3>
+                <div className="my-2 border-l-2 border-secondary">
+                  {planner.slots.map(slot => (
+                    <button
+                      className={"border-2 px-4 py-2 m-2 hover:bg-secondary hover:border-secondary" +
+                      (!slot.available ? " text-gray-400 border-gray-400 hover:bg-transparent hover:border-gray-400 cursor-default" : "") +
+                          (selectedSlot === slot._key ? " bg-secondary border-white hover:border-white" : "")}
+                      key={slot._key}
+                      onClick={() => handleClick(slot)}
+                    >
+                        {slot.slot_time}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            ): null
           ))
         }
 
-        <form className="flex flex-col" onSubmit={handleSubmit}>
+        <form className="flex flex-col my-8" onSubmit={handleSubmit}>
           <div className="flex flex-col my-4">
             <label className="font-chakra font-semibold uppercase" htmlFor="name">Your name</label>
-            <input className="w-1/2 py-2 border-b-2 border-grey bg-primary text-offwhite placeholder:text-offwhite focus:outline-none focus:border-secondary" id="name" type="text" value={name} placeholder="Enter Your Name" onChange={(e) => setName(e.target.value)}></input>
+            <input className="w-1/2 py-2 border-b-2 border-grey bg-primary text-offwhite placeholder:text-offwhite focus:outline-none focus:border-secondary" id="name" type="text" value={name} placeholder="Enter Your Name" onChange={(e) => setName(e.target.value)} required/>
           </div>
           <div className="flex flex-col my-4">
             <label className="font-chakra font-semibold uppercase" htmlFor="email">Your email</label>
-            <input className="w-1/2 py-2 border-b-2 border-grey bg-primary text-offwhite placeholder:text-offwhite focus:outline-none focus:border-secondary" type="email" value={email} placeholder="Enter Your Email" onChange={(e) => setEmail(e.target.value)}></input>
+            <input className="w-1/2 py-2 border-b-2 border-grey bg-primary text-offwhite placeholder:text-offwhite focus:outline-none focus:border-secondary" type="email" value={email} placeholder="Enter Your Email" onChange={(e) => setEmail(e.target.value)} required/>
           </div>
           <div className="flex flex-col my-4">
             <label className="font-chakra font-semibold uppercase" htmlFor="message">Any message You'd like to convey to us</label>
