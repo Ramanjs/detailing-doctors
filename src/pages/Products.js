@@ -12,6 +12,7 @@ const Products = () => {
     sanityClient.fetch(`*[_type == "product"] {
       _id,
       name,
+      order,
       points[],
       image {
         asset -> {
@@ -21,6 +22,7 @@ const Products = () => {
       }
     }`)
       .then(data => {
+        data.sort((a, b) => a.order - b.order)
         setData(data)
       })
       .catch(err => {

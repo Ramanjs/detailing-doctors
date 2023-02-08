@@ -9,6 +9,11 @@ export const product = {
       type: 'string',
     },
     {
+      name: 'order',
+      title: 'Order',
+      type: 'number'
+    },
+    {
       name: 'points',
       title: 'Points',
       type: 'array',
