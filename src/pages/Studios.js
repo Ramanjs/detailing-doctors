@@ -16,6 +16,12 @@ const Studios = () => {
     sanityClient.fetch(`*[_type == "studio"] {
       _id,
       name,
+      image {
+        asset -> {
+          _id,
+          url
+        }
+      },
       description
     }`)
       .then(data => {
@@ -32,7 +38,7 @@ const Studios = () => {
       {data && data.map(studio => (
         <div key={studio._id} className="w-64 m-8">
           <div className="w-full h-72 ">
-            <img className="h-full object-cover" src={car} alt="studio"/>
+            <img className="h-full object-cover" src={studio.image? studio.image.asset.url : ""} alt="studio"/>
           </div>
           <h2 className="text-secondary text-2xl font-semibold font-chakra uppercase my-4">{studio.name}</h2>
           <p className="text-white text-sm my-2">{studio.description}</p>

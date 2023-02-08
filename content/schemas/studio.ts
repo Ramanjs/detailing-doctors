@@ -14,6 +14,11 @@ export const studio = {
       type: 'string'
     },
     {
+      name: 'image',
+      title: 'Image',
+      type: 'image'
+    },
+    {
       name: 'calendar',
       title: 'Calendar',
       type: 'array',
