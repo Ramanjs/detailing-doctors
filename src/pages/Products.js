@@ -1,15 +1,18 @@
 import React, {useEffect, useState} from 'react'
 import sanityClient from '../sanity-client'
 import { Helmet } from 'react-helmet'
+import {useNavigate} from 'react-router-dom'
 
 const Products = () => {
 
   const [data, setData] = useState(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     sanityClient.fetch(`*[_type == "product"] {
       _id,
       name,
+      slug,
       order,
       points[],
       image {
@@ -28,6 +31,10 @@ const Products = () => {
       })
   }, [])
 
+  const handleClick = slug => {
+    navigate(slug)
+  }
+
   return (
     <div className="w-full text-white">
       <Helmet>
@@ -40,11 +47,10 @@ const Products = () => {
             <img className="object-cover z-0" src={product.image.asset.url} alt="service"/>
             <div className="w-full h-full z-10 bg-black absolute top-0 opacity-30"></div>
           </div>
-          <div className="w-full lg:w-1/2 p-10">
+          <div className="w-full lg:w-1/2 p-10 flex flex-col justify-between">
             <h2 className="text-4xl font-medium font-chakra uppercase decoration-secondary decoration-4 underline underline-offset-8">{product.name}</h2>
-            {product.points.map((point, index) => (
-              <p key={index} className="my-4">{point}</p>
-            ))}
+            <p>{product.points[0]}</p>
+            <button className="font-shakra uppercase font-semibold my-4 w-fit py-2 px-4 bg-secondary hover:cursor-pointer" onClick={() => handleClick(product.slug)}>Know More</button>
           </div>
         </div>
       ))}

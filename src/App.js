@@ -2,6 +2,7 @@ import React, {useRef} from 'react'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Products from './pages/Products'
+import Product from './pages/Product'
 import Studios from './pages/Studios'
 import BookSlot from './pages/BookSlot'
 import Contact from './pages/Contact'
@@ -22,6 +23,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/studios" element={<Studios />} />
         <Route path="/bookslot" element={<BookSlot />} />
+        <Route path="/products/:id" element={<Product />} />
       </Routes>
     </HashRouter>
   );
