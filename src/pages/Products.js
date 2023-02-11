@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import product1 from '../assets/product-1.jpg'
-import product2 from '../assets/product-2.jpg'
-import product3 from '../assets/product-3.jpg'
 import sanityClient from '../sanity-client'
+import { Helmet } from 'react-helmet'
 
 const Products = () => {
 
@@ -32,6 +30,10 @@ const Products = () => {
 
   return (
     <div className="w-full text-white">
+      <Helmet>
+        <title>Detailing Doctors | Products</title>
+        <meta name="description" content="The premium car detailing studio"/>
+      </Helmet>
       {data && data.map((product, index) => (
         <div key={product._id} className={"w-full flex my-2 lg:my-0 flex-col lg:flex-row" + (index & 1 ? " flex-col-reverse lg:flex-row-reverse" : "")}>
           <div className="w-full lg:w-1/2 relative">

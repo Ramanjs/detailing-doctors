@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Helmet } from 'react-helmet'
 
 const Contact = () => {
   const [name, setName] = useState('')
@@ -7,6 +8,10 @@ const Contact = () => {
 
   return (
     <div className="w-full p-4 flex justify-center text-white">
+      <Helmet>
+        <title>Detailing Doctors | Contact Us</title>
+        <meta name="description" content="The premium car detailing studio"/>
+      </Helmet>
       <form className="flex flex-col w-1/2">
         <div className="flex flex-col my-4">
           <label className="font-chakra font-semibold uppercase" htmlFor="name">Your name</label>

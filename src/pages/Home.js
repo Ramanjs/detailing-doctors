@@ -4,10 +4,15 @@ import logo from '../assets/logo-no-bg.png'
 import car1 from '../assets/car1.jpg'
 import car2 from '../assets/car2.jpg'
 import car3 from '../assets/car3.jpg'
+import {Helmet} from 'react-helmet'
 
 const Home = ({ vref }) => {
   return (
     <div className="w-full flex flex-col justify-center text-white">
+      <Helmet>
+        <title>Detailing Doctors</title>
+        <meta name="description" content="The premium car detailing studio"/>
+      </Helmet>
       {/* Landing Page */}
       <div className="w-full min-h-screen flex flex-col justify-center items-center">
         {/*<img src={homebg} className="w-full h-full absolute -z-10" alt="home background"/>*/}

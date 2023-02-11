@@ -2,6 +2,7 @@ import {useEffect, useState} from "react"
 import {useNavigate, useLocation} from "react-router-dom"
 import sanityClient from "../sanity-client"
 import emailjs from "@emailjs/browser"
+import { Helmet } from "react-helmet"
 
 const BookSlot = () => {
 
@@ -76,6 +77,10 @@ const BookSlot = () => {
 
   return (
     <div className="w-full flex flex-col items-center">
+      <Helmet>
+        <title>Detailing Doctors | Book Slot</title>
+        <meta name="description" content="The premium car detailing studio"/>
+      </Helmet>
       <h1 className="my-8 mx-2 text-4xl font-semibold text-white font-chakra text-center uppercase underline decoration-secondary decoration-4 underline-offset-8">Book a Slot With Us</h1>
       <div className="w-full p-4 text-white max-w-md">
         <h2 className="mb-4 font-chakra text-2xl uppercase text-secondary text-center">{state.studio} Studio</h2>

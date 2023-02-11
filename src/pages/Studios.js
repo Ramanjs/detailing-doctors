@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
-import car from '../assets/car.png'
 import sanityClient from '../sanity-client'
+import { Helmet } from 'react-helmet'
 
 const Studios = () => {
 
@@ -35,6 +35,10 @@ const Studios = () => {
 
   return (
     <div className="w-full p-4 flex flex-wrap justify-evenly">
+      <Helmet>
+        <title>Detailing Doctors | Studios</title>
+        <meta name="description" content="The premium car detailing studio"/>
+      </Helmet>
       {data && data.map(studio => (
         <div key={studio._id} className="w-64 m-8">
           <div className="w-full h-72 ">
