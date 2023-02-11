@@ -13,7 +13,7 @@ const Home = ({ vref }) => {
         {/*<img src={homebg} className="w-full h-full absolute -z-10" alt="home background"/>*/}
         {/*<h1 className="text-6xl font-semibold uppercase font-chakra">Detailing Doctors</h1>*/}
         <img src={logo} alt="logo"/>
-        <p ref={vref} className="font-medium text-lg">the premier car detailing studio</p>
+        <p ref={vref} className="font-medium text-lg">the premium car detailing studio</p>
       </div>
 
       {/* About Us */}
