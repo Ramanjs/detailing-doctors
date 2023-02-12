@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Products from './pages/Products'
 import Product from './pages/Product'
 import Studios from './pages/Studios'
+import Confirmation from './pages/Confirmation'
 import BookSlot from './pages/BookSlot'
 import Contact from './pages/Contact'
 import {HashRouter, Routes, Route} from 'react-router-dom'
@@ -23,6 +24,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/studios" element={<Studios />} />
         <Route path="/bookslot" element={<BookSlot />} />
+        <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/products/:id" element={<Product />} />
       </Routes>
     </HashRouter>

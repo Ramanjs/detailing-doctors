@@ -12,15 +12,16 @@ const BookSlot = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
   const today = new Date()
 
   const navigate = useNavigate()
 
-  if (!state) {
-    navigate("/studios")
-  }
-
   useEffect(() => {
+    if (state === null) {
+      navigate("/studios")
+    }
     sanityClient.fetch(`*[_type == "studio" && name == "${state.studio}"] {
         name,
         description,
@@ -40,6 +41,7 @@ const BookSlot = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
+    setLoading(true)
     let slot_date, slot_time;
 
     for (let planner of data.calendar) {
@@ -68,10 +70,15 @@ const BookSlot = () => {
       "MdQQ8r7SRIsYuy7Vr"
     )
       .then(() => {
-        console.log("success")
+        setLoading(false)
+        navigate("/confirmation", { state: templateParams })
       })
       .catch(err => {
-        console.log("error")
+        setLoading(false)
+        setError('Some error occured! Please try again later.')
+        setTimeout(() => {
+          setError('')
+        }, 5000)
       })
   }
 
@@ -83,7 +90,7 @@ const BookSlot = () => {
       </Helmet>
       <h1 className="my-8 mx-2 text-4xl font-semibold text-white font-chakra text-center uppercase underline decoration-secondary decoration-4 underline-offset-8">Book a Slot With Us</h1>
       <div className="w-full p-4 text-white max-w-md">
-        <h2 className="mb-4 font-chakra text-2xl uppercase text-secondary text-center">{state.studio} Studio</h2>
+        {state && <h2 className="mb-4 font-chakra text-2xl uppercase text-secondary text-center">{state.studio} Studio</h2>}
         <p className="text-white text-xl mt-2">Pick a Slot</p>
         {data && data.calendar.map(planner => (
               <div key={planner._key} className="my-8">
@@ -118,7 +125,13 @@ const BookSlot = () => {
             <label className="font-chakra font-semibold uppercase" htmlFor="message">Any message You'd like to convey to us</label>
             <input className="py-2 border-b-2 border-grey bg-primary text-offwhite placeholder:text-offwhite focus:outline-none focus:border-secondary" id="message" type="text" value={message} placeholder="Enter your message" onChange={(e) => setMessage(e.target.value)}></input>
           </div>
-          <input className="font-shakra uppercase font-semibold my-4 w-fit py-2 px-4 bg-secondary hover:cursor-pointer" type="submit" value="Book Slot"/>
+          {error && <p className="text-red-500">{error}</p>}
+          {!loading && <input className="font-shakra uppercase font-semibold my-4 w-fit py-2 px-4 bg-secondary hover:cursor-pointer mx-auto" type="submit" value="Book Slot"/>}
+          {loading && (
+            <div className="w-full my-2">
+              <div className="w-8 h-8 mx-auto border-t-4 border-blue-400 rounded-[50%] animate-spin">
+              </div>
+            </div>)}
         </form>
       </div>
     </div>
