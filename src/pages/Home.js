@@ -5,6 +5,7 @@ import car1 from '../assets/car1.jpg'
 import car2 from '../assets/car2.jpg'
 import car3 from '../assets/car3.jpg'
 import {Helmet} from 'react-helmet'
+import arrow from '../assets/arrow.png'
 
 const Home = ({ vref }) => {
   return (
@@ -14,11 +15,12 @@ const Home = ({ vref }) => {
         <meta name="description" content="The premium car detailing studio"/>
       </Helmet>
       {/* Landing Page */}
-      <div className="w-full min-h-screen flex flex-col justify-center items-center">
+      <div className="w-full min-h-screen flex flex-col justify-center items-center px-2">
         {/*<img src={homebg} className="w-full h-full absolute -z-10" alt="home background"/>*/}
         {/*<h1 className="text-6xl font-semibold uppercase font-chakra">Detailing Doctors</h1>*/}
         <img src={logo} alt="logo"/>
         <p ref={vref} className="font-medium text-lg">the premium car detailing studio</p>
+        <div className="absolute bottom-2 flex space-4 items-center">Scroll to explore more <img className="h-4 mx-2" src={arrow} alt="arrow"/></div>
       </div>
 
       {/* About Us */}
