@@ -13,7 +13,7 @@ const Navbar = ({ inView }) => {
 
   return (
     <div className="w-full flex flex-col sticky top-0 z-50">
-      <div className="w-full flex flex-col space-y-2 sm:flex-row justify-between items-center py-2 px-2 sm:px-16 bg-white text-secondary font-bold">
+      <div className="w-full flex flex-col space-y-2 sm:space-y-0 sm:flex-row justify-between items-center py-2 px-2 sm:px-16 bg-white text-secondary font-bold">
         <div className="flex items-center space-x-2"><AddIcCallIcon /> <span>Call Us +91 1234567891</span></div>
         <div className="flex items-center space-x-2"><AccessTimeIcon /> <span>Tue - Sun | 10.00 AM To 07.00 PM </span></div>
         <div className="flex items-center space-x-2"><FacebookIcon /> <InstagramIcon /></div>
