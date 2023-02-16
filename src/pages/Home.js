@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import logo from '../assets/logo-no-bg.png'
 import car1 from '../assets/car1.jpg'
 import car2 from '../assets/car2.jpg'
@@ -7,9 +7,23 @@ import {Helmet} from 'react-helmet'
 import arrow from '../assets/arrow.png'
 import CountUp from 'react-countup'
 import {useInView} from 'react-intersection-observer'
+import sanityClient from '../sanity-client'
 
 const Home = ({ vref }) => {
   const {ref, inView} = useInView()
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    sanityClient.fetch(`*[_type == "home"] {
+      stats
+    }`)
+      .then(data => {
+        setData(data[0])
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [])
 
   return (
     <div className="w-full flex flex-col justify-center text-white">
@@ -54,14 +68,14 @@ const Home = ({ vref }) => {
       <div className="w-full min-h-screen flex flex-col justify-center items-center text-lg relative">
         <h2 className="text-4xl font-semibold uppercase font-chakra my-4">Our Numbers</h2>
         <div className="w-16 border-2 border-secondary mb-4"></div>
-        <div ref={ref} className="flex items-center space-x-12">
-          <div className="flex flex-col items-center">
-            {inView && <CountUp className="text-4xl font-bold" end={50} duration={3}/>}
-            <p>Years of Experience</p>
-          </div>
-          <CountUp className="text-4xl font-bold" end={2654} duration={3}/>
-          <CountUp className="text-4xl font-bold" end={80} duration={3}/>
-        </div>
+        <div ref={ref} className="flex flex-col sm:flex-row items-center my-12 space-y-12 sm:space-x-24">
+          {data && data.stats.map(stat => (
+            <div className="flex flex-col items-center">
+              {inView && <CountUp className="text-5xl font-bold" end={stat.number} duration={3}/>}
+              <p className="text-lg my-2">{stat.caption}</p>
+            </div>
+          ))}
+       </div>
       </div>
     </div>
   )
