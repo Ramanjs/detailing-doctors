@@ -63,6 +63,8 @@ const BookSlot = () => {
       slot_time,
       slot_date,
       message,
+      phone,
+      address
     }
 
     emailjs.send(
