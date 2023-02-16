@@ -10,6 +10,8 @@ const BookSlot = () => {
   const [data, setData] = useState(null)
   const [selectedSlot, setSelectedSlot] = useState('')
   const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
+  const [address, setAddress] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
@@ -118,15 +120,23 @@ const BookSlot = () => {
             <input className="w-1/2 py-2 border-b-2 border-grey bg-primary text-offwhite placeholder:text-offwhite focus:outline-none focus:border-secondary" id="name" type="text" value={name} placeholder="Enter Your Name" onChange={(e) => setName(e.target.value)} required/>
           </div>
           <div className="flex flex-col my-4">
+            <label className="font-chakra font-semibold uppercase" htmlFor="address">Mobile Number</label>
+            <input className="w-1/2 py-2 border-b-2 border-grey bg-primary text-offwhite placeholder:text-offwhite focus:outline-none focus:border-secondary" id="address" type="tel" value={phone} placeholder="Ex: 8918523134" onChange={(e) => setPhone(e.target.value)} required pattern="[0-9]{10}"/>
+          </div>
+          <div className="flex flex-col my-4">
             <label className="font-chakra font-semibold uppercase" htmlFor="email">Your email</label>
-            <input className="w-1/2 py-2 border-b-2 border-grey bg-primary text-offwhite placeholder:text-offwhite focus:outline-none focus:border-secondary" type="email" value={email} placeholder="Enter Your Email" onChange={(e) => setEmail(e.target.value)} required/>
+            <input className="w-1/2 py-2 border-b-2 border-grey bg-primary text-offwhite placeholder:text-offwhite focus:outline-none focus:border-secondary" id="email" type="email" value={email} placeholder="Enter Your Email" onChange={(e) => setEmail(e.target.value)} required/>
+          </div>
+          <div className="flex flex-col my-4">
+            <label className="font-chakra font-semibold uppercase" htmlFor="address">Complete Address</label>
+            <input className="w-full py-2 border-b-2 border-grey bg-primary text-offwhite placeholder:text-offwhite focus:outline-none focus:border-secondary" id="address" type="text" value={address} placeholder="Enter Your Address" onChange={(e) => setAddress(e.target.value)} required/>
           </div>
           <div className="flex flex-col my-4">
             <label className="font-chakra font-semibold uppercase" htmlFor="message">Any message You'd like to convey to us</label>
             <input className="py-2 border-b-2 border-grey bg-primary text-offwhite placeholder:text-offwhite focus:outline-none focus:border-secondary" id="message" type="text" value={message} placeholder="Enter your message" onChange={(e) => setMessage(e.target.value)}></input>
           </div>
           {error && <p className="text-red-500">{error}</p>}
-          {!loading && <input className="font-shakra uppercase font-semibold my-4 w-fit py-2 px-4 bg-secondary hover:cursor-pointer mx-auto" type="submit" value="Book Slot"/>}
+          {!loading && <input className="font-chakra uppercase font-semibold my-4 w-fit py-2 px-4 bg-secondary hover:cursor-pointer mx-auto" type="submit" value="Book Slot"/>}
           {loading && (
             <div className="w-full my-2">
               <div className="w-8 h-8 mx-auto border-t-4 border-blue-400 rounded-[50%] animate-spin">
