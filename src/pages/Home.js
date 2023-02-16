@@ -1,13 +1,16 @@
 import React from 'react'
-import homebg from '../assets/home-background.jpg'
 import logo from '../assets/logo-no-bg.png'
 import car1 from '../assets/car1.jpg'
 import car2 from '../assets/car2.jpg'
 import car3 from '../assets/car3.jpg'
 import {Helmet} from 'react-helmet'
 import arrow from '../assets/arrow.png'
+import CountUp from 'react-countup'
+import {useInView} from 'react-intersection-observer'
 
 const Home = ({ vref }) => {
+  const {ref, inView} = useInView()
+
   return (
     <div className="w-full flex flex-col justify-center text-white">
       <Helmet>
@@ -46,6 +49,18 @@ const Home = ({ vref }) => {
           <p className="my-4">Welcome to Detailing Doctors, the premier car detailing studio in town. We are dedicated to bringing your vehicle to its full potential, both inside and out. Our team of experienced professionals use only the best products and techniques to ensure your car looks its best.</p>
           <p className="my-4">One of our most popular services is our G.O.T. Graphene Diamond Hard Coating. This premium coating protects your car's paint and acts like a tempered glass shield, helping to protect it from the elements and everyday wear and tear. Our Graphene Diamond Hard Coating is designed to last a lifetime, so you can trust that your car will always be protected.</p>
           <p className="my-4">If you want to give your car the ultimate protection and shine, look no further than Detailing Doctors. Contact us today to schedule your appointment and experience the difference that premium care can make.</p>
+        </div>
+      </div>
+      <div className="w-full min-h-screen flex flex-col justify-center items-center text-lg relative">
+        <h2 className="text-4xl font-semibold uppercase font-chakra my-4">Our Numbers</h2>
+        <div className="w-16 border-2 border-secondary mb-4"></div>
+        <div ref={ref} className="flex items-center space-x-12">
+          <div className="flex flex-col items-center">
+            {inView && <CountUp className="text-4xl font-bold" end={50} duration={3}/>}
+            <p>Years of Experience</p>
+          </div>
+          <CountUp className="text-4xl font-bold" end={2654} duration={3}/>
+          <CountUp className="text-4xl font-bold" end={80} duration={3}/>
         </div>
       </div>
     </div>
