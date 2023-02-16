@@ -20,7 +20,7 @@ const Home = ({ vref }) => {
         {/*<h1 className="text-6xl font-semibold uppercase font-chakra">Detailing Doctors</h1>*/}
         <img src={logo} alt="logo"/>
         <p ref={vref} className="font-medium text-lg">the premium car detailing studio</p>
-        <div className="absolute bottom-2 flex space-4 items-center">Scroll to explore more <img className="h-4 mx-2" src={arrow} alt="arrow"/></div>
+        <div className="mt-24 flex space-4 items-center">Scroll to explore more <img className="h-4 mx-2" src={arrow} alt="arrow"/></div>
       </div>
 
       {/* About Us */}
