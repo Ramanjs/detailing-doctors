@@ -68,7 +68,7 @@ const Home = ({ vref }) => {
       <div className="w-full min-h-screen flex flex-col justify-center items-center text-lg relative">
         <h2 className="text-4xl font-semibold uppercase font-chakra my-4">Our Numbers</h2>
         <div className="w-16 border-2 border-secondary mb-4"></div>
-        <div ref={ref} className="flex flex-col sm:flex-row items-center my-12 space-y-12 sm:space-x-24">
+        <div ref={ref} className="flex flex-col sm:flex-row items-center my-12 space-y-12 sm:space-x-24 sm:space-y-0">
           {data && data.stats.map(stat => (
             <div className="flex flex-col items-center">
               {inView && <CountUp className="text-5xl font-bold" end={stat.number} duration={3}/>}
