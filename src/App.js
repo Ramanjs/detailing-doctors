@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import Footer from './components/Footer'
 import {HashRouter, Routes, Route} from 'react-router-dom'
 import {useInView} from 'react-intersection-observer'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 function App() {
   const {ref, inView} = useInView({
@@ -27,6 +28,7 @@ function App() {
         <Route path="/bookslot" element={<BookSlot />} />
         <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/products/:id" element={<Product />} />
+        <Route path="/privacy_policy" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
     </HashRouter>
