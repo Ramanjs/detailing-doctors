@@ -10,7 +10,7 @@ export default function Footer() {
       </div>
       <div className="flex flex-col space-y-4 justify-between max-w-[40%]">
         <p className="text-xl font-bold font-chakra">Contact Info</p>
-        <p>+91 1234567891</p>
+        <p>+91-8851-766763</p>
         <div className="flex space-x-2 font-bold"><FacebookIcon /> <InstagramIcon /></div>
       </div>
     </div>
