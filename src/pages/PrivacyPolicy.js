@@ -13,7 +13,7 @@ export default function PrivacyPolicy(){
             <p><br />At detailingdoctors.in, we take the privacy and security of our users' data very seriously. This privacy policy outlines the information we collect, how we use it, and how we protect it.
             <br />
             <br />Information We Collect:
-            <br />When you visit our website, we may collect certain information automatically, including your IP address, device type, and br /owser type. We also use cookies to track your activity on our website and personalize your experience.
+            <br />When you visit our website, we may collect certain information automatically, including your IP address, device type, and browser type. We also use cookies to track your activity on our website and personalize your experience.
             <br />
             <br />If you submit a contact form or sign up for our newsletter, we will collect your name, email address, and any other information you provide. We will use this information to communicate with you about our services and promotions.
             <br />
