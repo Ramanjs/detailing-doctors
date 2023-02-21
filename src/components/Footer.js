@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="flex flex-col space-y-4 justify-between max-w-[40%]">
         <p className="text-xl font-bold font-chakra">Contact Info</p>
         <p>+91-8851-766763</p>
-        <div className="flex space-x-2 font-bold"><FacebookIcon /> <InstagramIcon /></div>
+        <div className="flex space-x-2 font-bold"><a href="https://www.facebook.com/profile.php?id=100088306002766"><FacebookIcon /></a> <a href="https://www.instagram.com/gotdetailings/"><InstagramIcon /></a></div>
       </div>
     </div>
   )
