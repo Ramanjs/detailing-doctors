@@ -30,7 +30,7 @@ const Navbar = ({ inView }) => {
           )}>
           <span className="p-2" onClick={() => setExpand(false)}><NavLink to="/" className={({ isActive }) => isActive ? "underline decoration-secondary decoration-2 underline-offset-4" : ""}>Home</NavLink></span>
           <span className="p-2" onClick={() => setExpand(false)}><NavLink to="/products" className={({ isActive }) => isActive ? "underline decoration-secondary decoration-2 underline-offset-4" : ""}>Products</NavLink></span>
-          <span className="p-2" onClick={() => setExpand(false)}><NavLink to="/studios" className={({ isActive }) => isActive ? "underline decoration-secondary decoration-2 underline-offset-4" : ""}>Studios</NavLink></span>
+          <span className="p-2" onClick={() => setExpand(false)}><NavLink to="/studios" className={({ isActive }) => isActive ? "underline decoration-secondary decoration-2 underline-offset-4" : ""}>Book a Slot</NavLink></span>
           <span className="p-2" onClick={() => setExpand(false)}><NavLink to="/contact" className={({ isActive }) => isActive ? "underline decoration-secondary decoration-2 underline-offset-4" : ""}>Contact</NavLink></span>
         </div>
       </div>
