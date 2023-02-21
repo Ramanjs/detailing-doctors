@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom'
 import logo from '../assets/logo-no-bg.png'
 import ham from '../assets/ham.png'
@@ -6,16 +6,29 @@ import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import sanityClient from '../sanity-client';
 
 const Navbar = ({ inView }) => {
-
   const [expand, setExpand] = useState(false)
+  const [timings, setTimings] = useState('')
+
+  useEffect(() => {
+    sanityClient.fetch(`*[_type == "home"]{
+      timings
+    }`)
+      .then(data => {
+        setTimings(data[0].timings)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [])
 
   return (
     <div className="w-full flex flex-col sticky top-0 z-50">
       <div className="w-full flex flex-col space-y-2 sm:space-y-0 sm:flex-row justify-between items-center py-2 px-2 sm:px-16 bg-white text-secondary font-bold">
         <div className="flex items-center space-x-2"><AddIcCallIcon /> <span>Call Us +91-8851-766763</span></div>
-        <div className="flex items-center space-x-2"><AccessTimeIcon /> <span>Tue - Sun | 10.00 AM To 07.00 PM </span></div>
+        <div className="flex items-center space-x-2"><AccessTimeIcon /> <span>{timings}</span></div>
         <div className="flex items-center space-x-2"><a href="https://www.facebook.com/profile.php?id=100088306002766"><FacebookIcon /></a> <a href="https://www.instagram.com/gotdetailings/"><InstagramIcon /></a></div>
       </div>
       <div className="w-full flex items-center justify-between text-white py-2 px-4 bg-primary shadow-md shadow-secondary/40">
