@@ -26,6 +26,11 @@ export const home = {
           ]
         }
       ]
+    },
+    {
+      name: 'timings',
+      title: 'Open Timings',
+      type: 'string'
     }
   ]
 }
