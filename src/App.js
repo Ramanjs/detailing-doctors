@@ -28,7 +28,7 @@ function App() {
         <Route path="/bookslot" element={<BookSlot />} />
         <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/products/:id" element={<Product />} />
-        <Route path="/privacy_policy" element={<PrivacyPolicy />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
     </HashRouter>

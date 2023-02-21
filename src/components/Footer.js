@@ -1,5 +1,6 @@
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { NavLink } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -12,6 +13,7 @@ export default function Footer() {
         <p className="text-xl font-bold font-chakra">Contact Info</p>
         <p>+91-8851-766763</p>
         <div className="flex space-x-2 font-bold"><a href="https://www.facebook.com/profile.php?id=100088306002766"><FacebookIcon /></a> <a href="https://www.instagram.com/gotdetailings/"><InstagramIcon /></a></div>
+        <NavLink className="underline" to="/privacy-policy">Privacy Policy</NavLink>
       </div>
     </div>
   )
