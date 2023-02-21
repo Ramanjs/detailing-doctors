@@ -7,6 +7,7 @@ import Studios from './pages/Studios'
 import Confirmation from './pages/Confirmation'
 import BookSlot from './pages/BookSlot'
 import Contact from './pages/Contact'
+import KnowMore from './pages/KnowMore'
 import Footer from './components/Footer'
 import {HashRouter, Routes, Route} from 'react-router-dom'
 import {useInView} from 'react-intersection-observer'
@@ -29,6 +30,7 @@ function App() {
         <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/products/:id" element={<Product />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/know-more" element={<KnowMore />} />
       </Routes>
       <Footer />
     </HashRouter>
