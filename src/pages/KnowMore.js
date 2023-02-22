@@ -1,5 +1,6 @@
 import { useState } from "react"
 import emailjs from "@emailjs/browser"
+import '../styles/scroll.css'
 
 export default function KnowMore() {
   const [name, setName] = useState('')
@@ -65,6 +66,9 @@ export default function KnowMore() {
           <div className="text-lg my-8">
             <p className="text-[#777777]">Can’t Wait? Give us a call now on:</p>
             <a href="tel:918851766763" className="underline text-secondary">+91-8851-766763</a>
+          </div>
+          <div className="sm:hidden relative w-full h-16">
+            <div className="scroll-down"></div>
           </div>
         </div>
       </div>
