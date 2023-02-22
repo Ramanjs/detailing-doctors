@@ -16,6 +16,7 @@ const Studios = () => {
     sanityClient.fetch(`*[_type == "studio"] {
       _id,
       name,
+      order,
       image {
         asset -> {
           _id,
@@ -26,6 +27,7 @@ const Studios = () => {
     }`)
       .then(data => {
         console.log(data)
+        data.sort((a, b) => a.order - b.order)
         setData(data)
       })
       .catch(err => {
