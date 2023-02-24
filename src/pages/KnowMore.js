@@ -18,6 +18,7 @@ export default function KnowMore() {
       name,
       to_email: email,
       contact: phone,
+      message: 'from /know-more form'
     }
 
     emailjs.send(
