@@ -23,10 +23,10 @@ const Contact = () => {
     }
 
     emailjs.send(
-      "service_bsjvemm",
-      "template_91kbnoh",
+      "service_rrwp22i",
+      "template_upsbadn",
       templateParams,
-      "MdQQ8r7SRIsYuy7Vr"
+      "-3vSffM-Y_4So1PRp"
     )
       .then(() => {
         setLoading(false)

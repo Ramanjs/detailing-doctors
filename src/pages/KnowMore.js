@@ -5,6 +5,7 @@ import '../styles/scroll.css'
 export default function KnowMore() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
@@ -15,14 +16,15 @@ export default function KnowMore() {
 
     const templateParams = {
       name,
-      phone,
+      to_email: email,
+      contact: phone,
     }
 
     emailjs.send(
-      "service_bsjvemm",
-      "template_91kbnoh",
+      "service_rrwp22i",
+      "template_upsbadn",
       templateParams,
-      "MdQQ8r7SRIsYuy7Vr"
+      "-3vSffM-Y_4So1PRp"
     )
       .then(() => {
         setLoading(false)
@@ -50,9 +52,10 @@ export default function KnowMore() {
         </div>
         <div className="w-full sm:w-[40%] flex flex-col sm:px-8 mt-8 sm:mt-0 sm:border-l-2 sm:border-l-[#BBBBBB]">
           <h2 className="text-4xl text-[#444444] mb-8">Want to talk to an <b>Expert</b> for Free?</h2>
-          <form className="w-full flex flex-col">
+          <form className="w-full flex flex-col" onSubmit={handleSubmit}>
             <input className="p-2 my-2" type="tel" pattern="[0-9]{10}" placeholder="Your Phone No." value={phone} onChange={e => setPhone(e.target.value)} required/>
             <input className="p-2 my-2" type="text" placeholder="Your Full Name" value={name} onChange={e => setName(e.target.value)} required/>
+            <input className="p-2 my-2" type="email" placeholder="Your email address" value={email} onChange={e => setEmail(e.target.value)} required/>
             {error && <p className="text-red-500">{error}</p>}
             {success && <p className="text-green-500">{success}</p>}
             {!loading && <input type="submit" className="text-lg px-4 py-2 bg-secondary text-white self-center my-4" value="Get a Call Back"/>}

@@ -68,10 +68,10 @@ const BookSlot = () => {
     }
 
     emailjs.send(
-      "service_bsjvemm",
-      "template_aglawk9",
+      "service_rrwp22i",
+      "template_3hotyvb",
       templateParams,
-      "MdQQ8r7SRIsYuy7Vr"
+      "-3vSffM-Y_4So1PRp"
     )
       .then(() => {
         setLoading(false)
