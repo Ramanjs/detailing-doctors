@@ -68,7 +68,7 @@ export default function KnowMore() {
           </form>
           <div className="text-lg my-8">
             <p className="text-[#777777]">Can’t Wait? Give us a call now on:</p>
-            <a href="tel:918851766763" className="underline text-secondary">+91-8851-766763</a>
+            <a href="tel:918851766763" className="underline text-secondary text-xl"><b>+91-8851-766763</b></a>
           </div>
           <div className="sm:hidden relative w-full h-16">
             <div className="scroll-down"></div>
