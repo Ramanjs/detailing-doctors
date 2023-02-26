@@ -75,7 +75,10 @@ const BookSlot = () => {
     )
       .then(() => {
         setLoading(false)
-        navigate("/confirmation", { state: templateParams })
+        navigate("/confirmation", { state: {
+          heading: 'Your booking is confirmed!',
+          content: `Hi ${name}, a request for your booking for slot ${slot_time} on ${slot_date} at the ${state.studio} Studio has been received. We will get back to you shortly.`
+        }})
       })
       .catch(err => {
         setLoading(false)
