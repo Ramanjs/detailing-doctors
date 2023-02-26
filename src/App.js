@@ -31,6 +31,7 @@ function App() {
         <Route path="/products/:id" element={<Product />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/know-more" element={<KnowMore />} />
+        <Route path="/thank-you" element={<Confirmation />} />
       </Routes>
       <Footer />
     </HashRouter>

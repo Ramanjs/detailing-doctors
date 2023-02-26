@@ -2,6 +2,7 @@ import { useState } from "react"
 import emailjs from "@emailjs/browser"
 import '../styles/scroll.css'
 import { Helmet } from "react-helmet"
+import { useNavigate } from "react-router-dom"
 
 export default function KnowMore() {
   const [name, setName] = useState('')
@@ -9,7 +10,8 @@ export default function KnowMore() {
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const [success, setSuccess] = useState('')
+
+  const navigate = useNavigate()
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -30,10 +32,10 @@ export default function KnowMore() {
     )
       .then(() => {
         setLoading(false)
-        setSuccess("Thank you for contacting us. We will get back to you shortly.")
-        setTimeout(() => {
-          setSuccess('')
-        }, 5000)
+        navigate("/thank-you", { state: {
+          heading: `Thank you ${name} for your interest, we will call you back shortly.`,
+          content: ''
+        } })
       })
       .catch(err => {
         setLoading(false)
@@ -64,8 +66,7 @@ export default function KnowMore() {
               <input className="p-2 my-2" type="text" placeholder="Your Full Name" value={name} onChange={e => setName(e.target.value)} required/>
               <input className="p-2 my-2" type="email" placeholder="Your email address" value={email} onChange={e => setEmail(e.target.value)} required/>
               {error && <p className="text-red-500">{error}</p>}
-              {success && <p className="text-green-500">{success}</p>}
-              {!loading && <input type="submit" className="text-lg px-4 py-2 bg-secondary text-white self-center my-4" value="Get a Call Back"/>}
+              {!loading && <input type="submit" className="text-lg px-4 py-2 bg-secondary text-white self-center my-4 cursor-pointer" value="Get a Call Back"/>}
               {loading && (
                 <div className="w-full my-2">
                   <div className="w-8 h-8 mx-auto border-t-4 border-blue-400 rounded-[50%] animate-spin">
